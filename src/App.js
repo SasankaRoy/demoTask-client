@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login";
+import Signin from "./Signin";
+import { Toaster } from "react-hot-toast";
+import { ShowData } from "./ShowData";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/alldata" element={<ShowData />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+      <Toaster />
+    </>
   );
-}
-
-export default App;
+};
